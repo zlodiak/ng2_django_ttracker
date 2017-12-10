@@ -25,7 +25,38 @@ SECRET_KEY = '^1n&s-qbs@i!)r%$xu$zdb32i-zbfrhv3piz2+d)l2o#8t8=c('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1:8000', 
+    'localhost'
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8000'    
+    'localhost',
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT'
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 
 # Application definition
@@ -39,6 +70,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app_users',
     'app_tasks',
+    'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,6 +82,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',    
 )
 
 ROOT_URLCONF = 'tracker.urls'
