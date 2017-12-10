@@ -8,5 +8,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'app_users/', include('app_users.urls')),
-    #url(r'app_tasks/', include('app_tasks.urls')),
+    url(r'app_tasks/', include('app_tasks.urls')),
 ]
